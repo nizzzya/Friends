@@ -12,7 +12,11 @@
   },
   "attributes": {
     "username": {
-      "type": "string"
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "maxLength": 23,
+      "minLength": 1
     },
     "bio": {
       "type": "blocks"
@@ -22,20 +26,24 @@
       "multiple": false,
       "required": false,
       "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
+        "images"
       ]
     },
     "ratingAsGuest": {
-      "type": "decimal"
+      "type": "decimal",
+      "default": 5,
+      "max": 5,
+      "min": 0
     },
     "ratingAsHost": {
-      "type": "decimal"
+      "type": "decimal",
+      "default": 5,
+      "max": 5,
+      "min": 0
     },
     "location": {
-      "type": "string"
+      "type": "string",
+      "maxLength": 64
     },
     "participatedEvents": {
       "type": "relation",
@@ -48,6 +56,11 @@
       "relation": "oneToMany",
       "target": "api::event.event",
       "mappedBy": "organizer"
+    },
+    "email": {
+      "type": "email",
+      "unique": true,
+      "required": true
     }
   }
 }

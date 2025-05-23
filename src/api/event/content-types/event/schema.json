@@ -4,26 +4,34 @@
   "info": {
     "singularName": "event",
     "pluralName": "events",
-    "displayName": "Event"
+    "displayName": "Event",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "attributes": {
     "title": {
-      "type": "string"
+      "type": "string",
+      "required": true,
+      "maxLength": 100,
+      "minLength": 3
     },
     "description": {
       "type": "blocks"
     },
     "dateTime": {
-      "type": "datetime"
+      "type": "datetime",
+      "required": true
     },
     "location": {
-      "type": "string"
+      "type": "string",
+      "required": true,
+      "maxLength": 64
     },
     "isPublic": {
-      "type": "boolean"
+      "type": "boolean",
+      "default": true
     },
     "organizer": {
       "type": "relation",
@@ -36,6 +44,23 @@
       "relation": "manyToMany",
       "target": "api::user-profile.user-profile",
       "mappedBy": "participatedEvents"
+    },
+    "city": {
+      "type": "string",
+      "required": false,
+      "maxLength": 64
+    },
+    "tags": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
     }
   }
 }
