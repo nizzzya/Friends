@@ -61,6 +61,12 @@
       "type": "email",
       "unique": true,
       "required": true
+    },
+    "comments": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::comment.comment",
+      "mappedBy": "author"
     }
   }
 }
