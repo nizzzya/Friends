@@ -59,3 +59,7 @@ Feel free to check out the [Strapi GitHub repository](https://github.com/strapi/
 ---
 
 <sub>🤫 Psst! [Strapi is hiring](https://strapi.io/careers).</sub>
+![strapi_erd](https://github.com/user-attachments/assets/ed97f92f-d51f-4a34-8846-10467e53eafb)
+
+
+
