@@ -28,6 +28,12 @@ export default factories.createCoreController('api::event.event', ({ strapi }) =
     // @ts-ignore
     return await super.create(ctx);
   },
-  async update(ctx) { return await super.update(ctx); },
-  async delete(ctx) { return await super.delete(ctx); },
+  async update(ctx) {
+    // @ts-ignore
+    return await super.update(ctx);
+  },
+  async delete(ctx) {
+    // @ts-ignore
+    return await super.delete(ctx);
+  },
 }));
