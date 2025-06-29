@@ -1,6 +1,4 @@
-import { Policy } from '@strapi/types';
-
-const allowEventOwner: Policy = async (ctx, config, { strapi }) => {
+const allowEventOwner = async (ctx, config, { strapi }) => {
   const { id } = ctx.params;
   const user = ctx.state.user;
 
