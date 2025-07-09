@@ -1,3 +1,3 @@
-const { factories } = require('@strapi/strapi');
+const { createCoreService } = require('@strapi/strapi').factories;
 
-module.exports = factories.createCoreService('api::event.event'); 
+module.exports = createCoreService('api::event.event'); 
