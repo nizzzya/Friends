@@ -67,6 +67,11 @@
       "relation": "oneToMany",
       "target": "api::comment.comment",
       "mappedBy": "event"
+    },
+    "documentId": {
+      "type": "string",
+      "unique": true,
+      "required": true
     }
   }
 }
