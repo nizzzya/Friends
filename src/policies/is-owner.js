@@ -14,7 +14,13 @@ module.exports = async (ctx, next) => {
   if (!match) {
     return ctx.badRequest("Cannot determine collection type");
   }
-  const collection = match[1].replace(/-/g, '_'); // event, comment, user_profile
+  // Мапінг множини з URL у однину для Strapi моделей
+  const map = {
+    events: 'event',
+    comments: 'comment',
+    'user-profiles': 'user-profile',
+  };
+  let collection = map[match[1]] || match[1];
 
   // Отримуємо ресурс
   const entity = await strapi.entityService.findOne(`api::${collection}.${collection}`, id, { populate: ['owner'] });
