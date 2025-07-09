@@ -21,11 +21,11 @@ module.exports = async (ctx, next) => {
   };
   let collection = map[match[1]] || match[1];
 
-  // Якщо це events, шукаємо по documentId, інакше — по id
+  // Якщо це events, шукаємо по eventUid, інакше — по id
   let entity;
   if (collection === 'event') {
     const results = await strapi.entityService.findMany(`api::event.event`, {
-      filters: { documentId: id },
+      filters: { eventUid: id },
       populate: ['owner'],
       limit: 1,
     });
