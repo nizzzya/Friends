@@ -68,7 +68,7 @@
       "target": "api::comment.comment",
       "mappedBy": "event"
     },
-    "documentId": {
+    "eventUid": {
       "type": "string",
       "unique": true,
       "required": true
