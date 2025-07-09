@@ -9,11 +9,12 @@ module.exports = async (ctx, next) => {
     return ctx.badRequest("Missing resource id");
   }
 
-  // Визначаємо тип колекції з шляху (наприклад, 'event')
-  const collection = ctx.request.route.info.apiName || ctx.request.route.info.name;
-  if (!collection) {
+  // Витягуємо тип колекції з шляху, наприклад /api/events/:id
+  const match = ctx.request.url.match(/^\/api\/(\w+)[\/\?]?/);
+  if (!match) {
     return ctx.badRequest("Cannot determine collection type");
   }
+  const collection = match[1].replace(/-/g, '_'); // event, comment, user_profile
 
   // Отримуємо ресурс
   const entity = await strapi.entityService.findOne(`api::${collection}.${collection}`, id, { populate: ['owner'] });
